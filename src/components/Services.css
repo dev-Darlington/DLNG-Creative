@@ -1,0 +1,112 @@
+.services {
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  z-index: 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-glow.glow-1 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: var(--accent-emerald);
+  filter: blur(140px);
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Services Cards Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.service-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 3rem 2rem;
+  overflow: hidden;
+  transition: transform 0.4s var(--transition-smooth), border-color 0.4s var(--transition-smooth), background-color 0.4s var(--transition-smooth);
+}
+
+.service-icon-wrapper {
+  color: var(--service-color, var(--accent-blue));
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  transition: transform 0.4s var(--transition-smooth), background 0.4s ease;
+}
+
+.service-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.service-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Hover Actions */
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--service-color, var(--accent-blue));
+  background-color: var(--bg-card-hover);
+}
+
+.service-card:hover .service-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--service-color, var(--accent-blue));
+  color: #0A0A0B;
+}
+
+.service-card:hover .service-title {
+  color: var(--service-color, var(--accent-blue));
+}
+
+/* Inner decorative accent border */
+.service-card-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0%;
+  background-color: var(--service-color, var(--accent-blue));
+  transition: height 0.4s var(--transition-smooth);
+}
+
+.service-card:hover .service-card-border {
+  height: 100%;
+}
